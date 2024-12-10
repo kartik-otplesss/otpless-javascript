@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="wrapper">
+            <h1 class="tag-line">OTPLess</h1>
+            <div class="login-section">
+                <div class="input-section">
+                    <input type="text" name="" id="input-value" placeholder="Enter Your Email" class="input-email">
+                </div>        
+                <div class="otp-section" id="otp-section" >
+                    <input type="text" placeholder="Enter Your OTP" class="input-otp" id='input-otp' >
+                </div>
+               
+                <div class="button-section">
+                    <button class="send-otp-btn" disabled id="send-otp">Continue</button>
+                    <button class="verify-otp-btn" disabled id="verify-otp">Verify</button>
+                </div>
+            </div>
+            <h1 class="login-option-or">OR</h1>
+
+
+            
+            <div class="social-container">
+                <button class="whatspp-btn"  onclick="oauth('WHATSAPP')">Continue With WhatsApp</button>
+                <button  class="google-btn"  onclick="oauth('GMAIL')">Continue With Google</button>
+            </div>
+
+            <div class="error-container" id="error">
+                <h1 class="error-name"> Error Name</h1>
+            </div>
+    </div>
+
+</body>
+<script>
+    const inputMobile = document.getElementById("input-value");
+const otpInput = document.getElementById("input-otp");
+const otpSection = document.getElementById("otp-section");
+const errorSection = document.getElementById("error");
+const sendOtp = document.getElementById("send-otp");
+const verifyOtp = document.getElementById("verify-otp");
+const timerDiv = document.getElementById("timer");
+const timeRemainingSpan = document.getElementById("timeRemaining");
+
+// Validate mobile number and enable Send OTP button
+
+inputMobile.addEventListener("input", () => {
+  const isValid = /^[0-9]{10}$/.test(inputMobile.value);
+  sendOtp.disabled = !isValid;
+});
+
+// Send OTP
+
+sendOtp.addEventListener("click", () => {
+  otpSection.style.display = "block";
+  otpSection.style.display = "flex";
+  verifyOtp.style.display = "flex";
+  sendOtp.disabled = true;
+
+  initiate(); // Initiate Function from OTPLess to send the OTP
+});
+console.log(verifyOtp);
+
+// Enable Verify OTP button on valid input
+otpInput.addEventListener("input", () => {
+  const isValid = /^[0-9]{6}$/.test(otpInput.value);
+  verifyOtp.disabled = !isValid;
+});
+
+// Verify OTP
+verifyOtp.addEventListener("click", () => {
+  verify(); // Verify Function from OTPLess to send the OTP
+  c;
+});
+
+// Show error
+function showError(message) {
+  errorSection.textContent = message;
+  errorSection.classList.remove("hidden");
+}
+</script>
+<script src="script.js"></script>
+</html>
