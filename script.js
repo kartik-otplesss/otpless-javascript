@@ -9,7 +9,7 @@ async function OTPlessSdk() {
     // Loading the script if it's not already loaded
 
     const script = document.createElement("script");
-    script.src = "https://otpless.tech/v3/headless.js";
+    script.src = "https://otpless.tech/v4/headless.js";
     script.id = "otpless-sdk";
 
     // Get your app id from https://otpless.com/dashboard/customer/dev-settings
