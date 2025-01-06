@@ -107,8 +107,6 @@ async function initiate() {
     channel: "PHONE",
     phone: phoneNumber,
     countryCode: "+91",
-    deliveryChannel: "WHATSAPP", //Headless request can be customized with custom Delivery Channel like 'WHATSAPP','SMS' and 'VIBER'
-    otpLength: 6, // Headless request can be customized with custom OTP length 4 or 6.
     expiry: "60", //Headless request can be customized with custom expiry.
   };
   const initiate = await hitOTPlessSdk({
